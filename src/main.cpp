@@ -21,15 +21,17 @@
     THE SOFTWARE.
 */
 
-#include "Wire.h"
-#include "ota.h"
-#include "GlobalVars.h"
-#include "globals.h"
-#include "credentials.h"
 #include <i2cscan.h>
-#include "serial/serialcommands.h"
+
+#include "GlobalVars.h"
+#include "Wire.h"
 #include "batterymonitor.h"
+#include "credentials.h"
+#include "globals.h"
 #include "logging/Logger.h"
+#include "network/esp_now.h"
+#include "ota.h"
+#include "serial/serialcommands.h"
 
 Timer<> globalTimer;
 SlimeVR::Logging::Logger logger("SlimeVR");
@@ -38,7 +40,7 @@ SlimeVR::LEDManager ledManager(LED_PIN);
 SlimeVR::Status::StatusManager statusManager;
 SlimeVR::Configuration::Configuration configuration;
 SlimeVR::Network::Manager networkManager;
-SlimeVR::Network::Connection networkConnection;
+SlimeVR::Network::EspNowConnection networkConnection;
 
 int sensorToCalibrate = -1;
 bool blinking = false;

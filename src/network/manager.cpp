@@ -27,23 +27,23 @@
 namespace SlimeVR {
 namespace Network {
 
-void Manager::setup() { ::WiFiNetwork::setUp(); }
+void Manager::setup() { ::EspNow::setUp(); }
 
 void Manager::update() {
-	WiFiNetwork::upkeep();
+	// EspNow::upkeep();
 
-	auto wasConnected = m_IsConnected;
+	// auto wasConnected = m_IsConnected;
 
-	m_IsConnected = ::WiFiNetwork::isConnected();
+	// m_IsConnected = ::EspNow::isConnected();
 
-	if (!m_IsConnected) {
-		return;
-	}
+	// if (!m_IsConnected) {
+	// 	return;
+	// }
 
-	if (!wasConnected) {
-		// WiFi was reconnected, rediscover the server and reconnect
-		networkConnection.reset();
-	}
+	// if (!wasConnected) {
+	// 	// WiFi was reconnected, rediscover the server and reconnect
+	// 	networkConnection.reset();
+	// }
 
 	networkConnection.update();
 }
