@@ -104,6 +104,7 @@ protected:
 
     bool newAcceleration = false;
     Vector3 acceleration{};
+	  Vector3 lastAccelerationSent{};
 
     SlimeVR::Logging::Logger m_Logger;
     

@@ -30,7 +30,16 @@ SensorStatus Sensor::getSensorState() {
 }
 
 void Sensor::setAccelerationReady() {
-    newAcceleration = true;
+	const float EPS = 0.1f;
+	bool changed = OPTIMIZE_UPDATES
+					 ? !(abs(acceleration.x - lastAccelerationSent.x) < EPS
+						 && abs(acceleration.y - lastAccelerationSent.y) < EPS
+						 && abs(acceleration.z - lastAccelerationSent.z) < EPS)
+					 : true;
+	if (ENABLE_INSPECTION || changed) {
+		newAcceleration = true;
+		lastAccelerationSent = acceleration;
+	}
 }
 
 void Sensor::setFusedRotationReady() {

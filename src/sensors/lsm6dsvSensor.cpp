@@ -452,7 +452,7 @@ LSM6DSVStatusTypeDef LSM6DSVSensor::readFifo(uint16_t fifo_samples) {
 				acceleration.x = linAcceleration[0];
 				acceleration.y = linAcceleration[1];
 				acceleration.z = linAcceleration[2];
-				newAcceleration = true;
+				this->setAccelerationReady();
 				break;
 			}
 
