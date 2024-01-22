@@ -658,14 +658,14 @@ void EspNowConnection::onPacket(const uint8_t* buf, size_t len) {
 	std::copy(buf, buf + len, m_Packet);
 
 	// #ifdef DEBUG_NETWORK
-	m_Logger.info("Received %d bytes", len);
-	m_Logger.infoArray("UDP packet contents: ", m_Packet, len);
-	m_Logger.info("Packet header %d", convert_chars<int>(m_Packet));
-	m_Logger.info("Packet header %d", m_Packet[0]);
-	m_Logger.info(
-		"Connecting %d",
-		statusManager.hasStatus(SlimeVR::Status::SERVER_CONNECTING)
-	);
+	// m_Logger.info("Received %d bytes", len);
+	// m_Logger.infoArray("UDP packet contents: ", m_Packet, len);
+	// m_Logger.info("Packet header %d", convert_chars<int>(m_Packet));
+	// m_Logger.info("Packet header %d", m_Packet[0]);
+	// m_Logger.info(
+	// 	"Connecting %d",
+	// 	statusManager.hasStatus(SlimeVR::Status::SERVER_CONNECTING)
+	// );
 	// #endif
 
 	if (statusManager.hasStatus(SlimeVR::Status::SERVER_CONNECTING)) {
